@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7
 
       - name: Cypress run
         uses: cypress-io/github-action@v6.5.0
