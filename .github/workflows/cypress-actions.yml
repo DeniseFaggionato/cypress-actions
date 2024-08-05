@@ -10,12 +10,12 @@ on:
 jobs:
   cypress-e2e-electron:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: Get code
-        uses: actions/checkout@v4.1.7
+        uses: actions/checkout@v4
 
       - name: Cypress run
-        uses: cypress-io/github-action@v6.5.0
+        uses: cypress-io/github-action@v6
         with:
           install-command: yarn install
           browser: electron
@@ -23,6 +23,8 @@ jobs:
           group: UI Electron
           spec: ${{ github.event.inputs.spec }}
         env:
-          CYPRESS_RECORD_KEY: 46def604-ff14-43e2-9ffa-3413ed05d19e
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
